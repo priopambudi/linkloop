@@ -51,3 +51,20 @@ const saveUserToDB = async (user: {
     return error;
   }
 };
+
+export const signInAccount = async (user: {
+  email: string;
+  password: string;
+}) => {
+  try {
+    const session = account.createEmailPasswordSession(
+      user.email,
+      user.password
+    );
+
+    return session;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
